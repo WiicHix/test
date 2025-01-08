@@ -16,12 +16,14 @@ const numrowsEl = document.getElementById("numrows");
 // Vid laddad sida anropas funktionerna
 window.onload = init;
 
+// Visa vald tablå?
+itemListEl.addEventListener("click")
+
 /* Funktioner */
 // Initerande-funktion
 function init() {
   // Anrop på funktionen getChannels
   getChannels();
-
   // Anrop på funktionen startPage
   startPage();
 }
@@ -64,14 +66,18 @@ function showChannels(channels) {
 
 // Funktion för informationsfält på förstasidan
 function startPage() {
-  // Titel för det högra fältet
+  /* Titel för det högra fältet */
+  // Element
   let newHeadingEL = document.createElement("h3");
+  //Textnod
   let newHeadingText = document.createTextNode(
     " Välkommen till tablåer för Sveriges Radio"
   );
 
-  // Beskrivning av sidan
+  /* Beskrivning av sidan */
+  // Element
   let newParagraphEl = document.createElement("p");
+  // Textnod
   let newDescriptionText = document.createTextNode(
     "Denna webb-applikation använder Sveriges Radios öppna API för tablåer och program. Välj kanal till vänster för att visa tablå för denna kanal."
   );
@@ -86,13 +92,16 @@ function startPage() {
 }
 
 // Funktion för att hämta tablå
-function getTableau(channelId) {
-  const tableauUrl = `https://api.sr.se/v2/scheduledepisodes?channelid=${channelId}&format=json&size=500`;
+function getTableau(channelsId) {
+  const tableauUrl = `https://api.sr.se/v2/scheduledepisodes?channelid=${channeslId}&format=json`;
 
   // Anrop på webbtjänsten
   fetch(tableauUrl)
+    // Omvandlar svaret till ett JS-objekt
     .then((response) => response.json())
+    // Anrop på funktionen för att visa tablån
     .then((data) => showTableau(data.schedule))
+    // Felmeddelande
     .catch((error) => console.log(`Följande fel uppstod; ${error}`));
 }
 
@@ -101,7 +110,7 @@ function showTableau(schedule) {
   // Tömmer info-elementet från tidigare innehåll
   infoEl.innerHTML = "";
 
-  infoEl;
+  
 
   // Hämtar aktuell datum och tid
   const today = new Date();
