@@ -11,13 +11,11 @@ document.getElementById("shownumrows").style.display = "none"; // Radera denna r
 const mainNavListEl = document.getElementById("mainnavlist");
 const infoEl = document.getElementById("info");
 const numrowsEl = document.getElementById("numrows");
+const mainHeaderEl = document.getElementById("mainheader");
 
 /* Händelsehanterare */
 // Vid laddad sida anropas funktionerna
 window.onload = init;
-
-// Visa vald tablå?
-itemListEl.addEventListener("click");
 
 /* Funktioner */
 // Initerande-funktion
@@ -110,29 +108,55 @@ function showTableau(schedule) {
   // Tömmer info-elementet från tidigare innehåll
   infoEl.innerHTML = "";
 
+  console.log(schedule);
+
   // Hämtar aktuell datum och tid
   const today = new Date();
   const currentTime = today.getTime();
 
-  // Skapa element för program-titel
-  let programTitelEl = document.createElement("h3");
-  let programTitelText = document.createTextNode("TEST");
+  // Loopar igenom programmen
+  schedule.forEach((program) => {
+    /* Skapar element */
+    // Article-element
+    let articleEl = document.createElement("article");
 
-  // Skapa element för subtitle
-  let subtitleEl = document.createElement("h4");
-  let subtitleText = document.createTextNode("");
+    // Skapar rubrik element och textnod för: program-titel
+    let programTitelEl = document.createElement("h3");
+    let programTitelText = document.createTextNode("TEST");
+    programTitelEl.appendChild(programTitelText);
 
-  // Programtid, start- och sluttid
-  let programTimeEl = document.createElement("h5");
-  let programTimeText = document.createTextNode("");
+    // Skapar underrubriks element och textnod för; subtitle
+    let subtitleEl = document.createElement("h4");
+    let subtitleText = document.createTextNode("");
+    subtitleEl.appendChild(subtitleText);
+
+    // Skapar underrubriks element och textnod för programtid; start- och sluttid
+    let programTimeEl = document.createElement("h5");
+    let programTimeText = document.createTextNode("");
+    programTimeEl.appendChild(programTimeText);
+
+    // Skapar element och textnod för beskrivning av programmet
+    let programDescriptionEl = document.createElement("p");
+    let programDescriptionText = document.createTextNode("");
+    programDescriptionEl.appendChild(programDescriptionText);
+
+    // Slår ihop elementen med varandra
+    articleEl.appendChild(programTitelEl);
+    articleEl.appendChild(subtitleEl);
+    articleEl.appendChild(programTimeEl);
+    articleEl.appendChild(programDescriptionEl);
+    infoEl.appendChild(articleEl);
+  });
+
+  console.log(program);
 }
 
-// Funktion för datum och tid
+/* Funktion för datum och tid
 function convertDate(dateStr) {
   //KOD
-}
+}*/
 
-// Funktion för att ändra headerfärg beroende på kanal
+/* Funktion för att ändra headerfärg beroende på kanal
 function headerStyle() {
-  //KOD
-}
+  mainHeaderEl.style.backgroundColor = ;
+}*/
