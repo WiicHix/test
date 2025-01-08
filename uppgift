@@ -1,0 +1,41 @@
+Information om gränssnittet med öppna data som skapats av Sveriges Radio finns att läsa på: https://sverigesradio.se/oppetapi
+
+Uppgiften går ut på att skapa funktionalitet till en webb-applikation som använder Sveriges Radios öppna data för programtablåer och sändningar av program.
+En huvudmeny baserat på Sveriges Radios olika kanaler ska visas på skärmen tillsammans med information om respektive kanal vid "mouse over".
+Klick på något av alternativen i denna meny ska visa tablån för respektive kanal. Endast kommande program under dagen ska visas, ej de som redan sänts.
+
+Du får en färdig uppsättning med HTML- och CSS-kod, samt en JavaScript-fil i vilken du ska skriva din JavaScript-kod för att lösa uppgiften.
+
+ Exempel på lösning
+Skärmbild på lösningsförslag
+Din uppgift i detta projekt blir att:
+
+skapa den JavaScript-kod som hanterar gränssnittet mot Sveriges Radios webbtjänst för att kunna konsumera de webbtjänster som behövs. Filens namn är main.js och ligger i mappen som heter js.
+skapa ett fungerande gränssnitt mellan den redan skapade HTML-sidan och din JavaScript-kod.
+För att kunna använda den bifogade HTML-sidan måste du skapa händelselyssnare som ansluts mot inmatningselementen på webbsidan.
+
+Se exempel nedan
+
+numrowsEl.addEventListener('change', changeNumrows , false);
+logoEl.addEventListener('click', loadFront, false);
+.
+.
+.
+
+            
+Efter detta ska ni implementera funktionerna att läsa ut kanaler, skriva ut dessa till skärmen tillsammans med händelsehanterare för vardera.
+
+Följande funktionalitet ska finnas med i den färdiga lösningen:
+
+Navigering i vänsterkanten som visar kanaler tillsammans med information om respektive kanal vid "mouse over" (använd title-attributet i HTML för detta).
+Klick på någon av dessa ska visa programtablån för dagen för denna kanal, med start på aktuellt klockslag fram till midnatt.
+Antal kanaler som ska visas i vänster meny bestämmer du själv utifrån vad du finner lämpligt. Det finns ganska många kanaler, så denna lista kan bli lång.
+Utläsning av tablåer utksrivet i lämpligt format. Ett förslag på formatering av enskild program-punkt kan vara:
+<article>
+    <h3>Titel på program</h3>
+    <h4>Undertitel</h4>
+    <h5>Start- och sluttid för programmet</h5>
+    <p>
+        Beskrivning
+    </p>
+</article>
