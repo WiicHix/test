@@ -28,7 +28,7 @@ function init() {
 
 // Funktion för att hämta kanaler från SR
 function getChannels() {
-  const url = "https://api.sr.se/api/v2/channels?format=json";
+  const url = `https://api.sr.se/api/v2/channels?format=json`;
 
   // Anropa webbtjänsten i ett JSON-format
   fetch(url)
@@ -86,9 +86,8 @@ function startPage() {
 }
 
 // Funktion för att hämta tablå
-function getTableau() {
-  const tableauUrl =
-    "https://api.sr.se/v2/scheduledepisodes?channelid=${channelId}&format=json&size=500";
+function getTableau(channelId) {
+  const tableauUrl = `https://api.sr.se/v2/scheduledepisodes?channelid=${channelId}&format=json&size=500`;
 
   // Anrop på webbtjänsten
   fetch(tableauUrl)
@@ -101,6 +100,8 @@ function getTableau() {
 function showTableau(schedule) {
   // Tömmer info-elementet från tidigare innehåll
   infoEl.innerHTML = "";
+
+  infoEl;
 
   // Hämtar aktuell datum och tid
   const today = new Date();
