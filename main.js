@@ -17,7 +17,7 @@ const numrowsEl = document.getElementById("numrows");
 window.onload = init;
 
 // Visa vald tablå?
-itemListEl.addEventListener("click")
+itemListEl.addEventListener("click");
 
 /* Funktioner */
 // Initerande-funktion
@@ -92,8 +92,8 @@ function startPage() {
 }
 
 // Funktion för att hämta tablå
-function getTableau(channelsId) {
-  const tableauUrl = `https://api.sr.se/v2/scheduledepisodes?channelid=${channeslId}&format=json`;
+function getTableau(channelId) {
+  const tableauUrl = `https://api.sr.se/v2/scheduledepisodes?channelid=${channelId}&format=json`;
 
   // Anrop på webbtjänsten
   fetch(tableauUrl)
@@ -109,8 +109,6 @@ function getTableau(channelsId) {
 function showTableau(schedule) {
   // Tömmer info-elementet från tidigare innehåll
   infoEl.innerHTML = "";
-
-  
 
   // Hämtar aktuell datum och tid
   const today = new Date();
